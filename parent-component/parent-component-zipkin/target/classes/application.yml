@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:192.168.31.91}:${MYSQL_PORT:3306}/garxin_zipkin?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    continue-on-error: true
+  application:
+    name: zipkin
+  sleuth:
+    enabled: false
+zipkin:
+  storage:
+    type: mysql
+  collector:
+    rabbitmq:
+      addresses: ${RABBIT_MQ_HOST:192.168.31.91}
+      port: ${RABBIT_MQ_PORT:5672}
+      password: guest
+      username: guest
+      queue: zipkin
+server:
+  port: 9411
+eureka:
+  instance:
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+  client:
+    serviceUrl:
+      defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
