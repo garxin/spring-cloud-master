@@ -11,9 +11,9 @@
 
 	<artifactId>parent-component-actuator</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	
+
 	<packaging>jar</packaging>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -44,45 +44,9 @@
 			<version>${boot.admin.version}</version>
 		</dependency>
 	</dependencies>
-	
-		<properties>
+
+	<properties>
 		<boot.admin.version>2.0.0-SNAPSHOT</boot.admin.version>
-		<spring-cloud.version>Dalston.RELEASE</spring-cloud.version>
 	</properties>
-	
-	<build>
-		<finalName>actuator</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<!-- 我的电脑没有装docker所以这个地方需要注销掉，否则打包时会报错
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>${docker.plugin.version}</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>build</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<imageName>${docker.image.prefix}/${project.build.finalName}</imageName>
-					<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>
-					<resources>
-						<resource>
-							<targetPath>/</targetPath>
-							<directory>${project.build.directory}</directory>
-							<include>${project.build.finalName}.jar</include>
-						</resource>
-					</resources>
-				</configuration>
-			</plugin>
-			-->
-		</plugins>
-	</build>
 </project>
+	
