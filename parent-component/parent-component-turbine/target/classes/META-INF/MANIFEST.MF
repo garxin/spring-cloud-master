@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+Implementation-Title: parent-component-turbine
+Implementation-Version: 1.0-SNAPSHOT
 Built-By: Administrator
+Implementation-Vendor-Id: com.garxin.springcloud
 Build-Jdk: 1.8.0_31
+Implementation-URL: https://github.com/garxin/garxin-spring-cloud/pare
+ nt-component/parent-component-turbine
 Created-By: Maven Integration for Eclipse
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.garxin.springcloud.midware.user.dao.UserDao">
+	<sql id="BASE_TABLE">
+		users
+	</sql>
+
+	<sql id="BASE_COLUMN">
+		id,username,password,birthday
+	</sql>
+
+	<insert id="insert" parameterType="com.garxin.springcloud.midware.user.domain.User">
+		INSERT INTO
+		<include refid="BASE_TABLE" />
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			username,password,
+			<if test="birthday != null">
+				birthday,
+			</if>
+		</trim>
+		<trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+			#{username, jdbcType=VARCHAR},#{password, jdbcType=VARCHAR},
+			<if test="birthday != null">
+				#{birthday, jdbcType=DATE},
+			</if>
+		</trim>
+	</insert>
+
+	<select id="selectUsers" resultType="com.garxin.springcloud.midware.user.domain.User">
+		SELECT
+		<include refid="BASE_COLUMN" />
+		FROM
+		<include refid="BASE_TABLE" />
+	</select>
+
+</mapper>
